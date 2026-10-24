@@ -1,0 +1,47 @@
+{
+  "settings": {
+    "number_of_shards": 1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "arxiv_id":            { "type": "keyword" },
+      "title":               { "type": "text", "fields": { "raw": { "type": "keyword", "ignore_above": 512 } } },
+      "abstract":            { "type": "text" },
+      "authors":             { "type": "text" },
+      "categories":          { "type": "keyword" },
+      "primary_category":    { "type": "keyword" },
+      "published_date":      { "type": "date", "format": "strict_date_optional_time||yyyy-MM-dd||epoch_millis" },
+      "published_year":      { "type": "integer" },
+      "doi_clean":           { "type": "keyword" },
+      "is_withdrawn":        { "type": "boolean" },
+
+      "openalex_id":         { "type": "keyword" },
+      "match_method":        { "type": "keyword" },
+      "topic_name":          { "type": "keyword" },
+      "subfield_name":       { "type": "keyword" },
+      "field_name":          { "type": "keyword" },
+      "cited_by_count":      { "type": "integer" },
+      "citations_3ans":      { "type": "float" },
+      "velocite":            { "type": "float" },
+
+      "has_hn":              { "type": "boolean" },
+      "hn_score":            { "type": "integer" },
+      "hn_comments":         { "type": "integer" },
+      "hn_posts":            { "type": "integer" },
+      "hn_first_posted_at":  { "type": "date", "format": "strict_date_optional_time||epoch_millis" },
+      "hn_top_title":        { "type": "text" },
+
+      "keywords":            { "type": "keyword" },
+
+      "score_citations":     { "type": "float" },
+      "score_velocite":      { "type": "float" },
+      "score_hn":            { "type": "float" },
+      "score_recence":       { "type": "float" },
+      "score_impact":        { "type": "float" },
+
+      "gold_indexed_at":     { "type": "date", "format": "strict_date_optional_time||epoch_millis" }
+    }
+  }
+}
